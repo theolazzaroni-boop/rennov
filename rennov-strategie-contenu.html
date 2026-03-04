@@ -599,6 +599,159 @@ footer {
 }
 footer p { font-size: .72rem; color: rgba(247,243,237,.35); letter-spacing: .1em; }
 
+/* ── VIDEO TRAMES ── */
+.video-tabs {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.vtab {
+  font-size: .72rem;
+  font-weight: 500;
+  padding: .5rem 1.2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border-strong);
+  background: var(--warm-white);
+  color: var(--stone);
+  cursor: pointer;
+  transition: all .2s ease;
+  letter-spacing: .03em;
+}
+.vtab:hover { border-color: var(--terracotta); color: var(--terracotta); }
+.vtab.active { background: var(--terracotta); border-color: var(--terracotta); color: white; }
+
+.video-panel { display: none; }
+.video-panel.active { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2rem; }
+
+.trame-card {
+  background: var(--ink);
+  border-radius: 10px;
+  overflow: hidden;
+  color: var(--sand);
+}
+.trame-header {
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid rgba(247,243,237,.08);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.trame-header-left {}
+.trame-emoji { font-size: 1.8rem; margin-bottom: .5rem; display: block; }
+.trame-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1.2; }
+.trame-meta { margin-top: .4rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+.tmeta {
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .2rem .6rem;
+  border-radius: 2rem;
+  background: rgba(247,243,237,.08);
+  color: rgba(247,243,237,.5);
+}
+.tmeta.platform { background: rgba(184,92,56,.2); color: var(--terracotta-light); }
+
+.trame-body { padding: 1.2rem 1.6rem 1.6rem; }
+.trame-body > p {
+  font-size: .78rem;
+  color: rgba(247,243,237,.5);
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.steps-list { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+.step-item {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: .8rem;
+  align-items: start;
+}
+.step-num {
+  width: 2rem; height: 2rem;
+  border-radius: 50%;
+  background: rgba(247,243,237,.06);
+  border: 1px solid rgba(247,243,237,.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .65rem;
+  font-weight: 600;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+.step-content {}
+.step-time {
+  font-size: .6rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  margin-bottom: .15rem;
+}
+.step-text { font-size: .8rem; color: rgba(247,243,237,.8); line-height: 1.5; }
+.step-tip  { font-size: .72rem; color: var(--gold); margin-top: .2rem; font-style: italic; }
+
+.tournage-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.tournage-header {
+  background: var(--sand);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 500;
+}
+.tournage-body { padding: 1.2rem 1.5rem; }
+
+.tip-block { margin-bottom: 1.4rem; }
+.tip-block:last-child { margin-bottom: 0; }
+.tip-block h4 {
+  font-size: .75rem;
+  font-weight: 600;
+  margin-bottom: .6rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.tip-list { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+.tip-list li {
+  font-size: .75rem;
+  color: var(--slate);
+  padding: .45rem .8rem;
+  background: var(--warm-white);
+  border-radius: 4px;
+  border-left: 2px solid var(--border-strong);
+  line-height: 1.5;
+}
+.tip-list li strong { color: var(--terracotta); font-weight: 600; }
+
+.hook-box {
+  background: var(--ink);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  margin-top: .8rem;
+}
+.hook-box .hook-label {
+  font-size: .6rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  margin-bottom: .4rem;
+}
+.hook-box p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--sand);
+  font-style: italic;
+  line-height: 1.5;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .header-inner { grid-template-columns: 1fr; }
@@ -611,6 +764,7 @@ footer p { font-size: .72rem; color: rgba(247,243,237,.35); letter-spacing: .1em
   .kpi-grid { grid-template-columns: 1fr 1fr; }
   .channel-row.open .channel-body { grid-template-columns: 1fr; }
   .tone-grid { grid-template-columns: 1fr; }
+  .video-panel.active { grid-template-columns: 1fr; }
   .cal-days { grid-template-columns: repeat(4, 1fr); }
 }
 </style>
@@ -1089,6 +1243,419 @@ footer p { font-size: .72rem; color: rgba(247,243,237,.35); letter-spacing: .1em
     </div>
   </section>
 
+  <!-- TRAMES VIDÉO -->
+  <section class="fade-up d6">
+    <div class="section-label"><span>09 · Trames vidéo</span></div>
+    <h2 class="section-title">Comment tourner vos vidéos</h2>
+
+    <div class="video-tabs">
+      <button class="vtab active" onclick="showVideo('avant-apres')">🏚️ Avant / Après</button>
+      <button class="vtab" onclick="showVideo('conseil')">🎓 Conseil Express</button>
+      <button class="vtab" onclick="showVideo('equipe')">👤 Portrait Équipe</button>
+      <button class="vtab" onclick="showVideo('temoignage')">💬 Témoignage Client</button>
+      <button class="vtab" onclick="showVideo('coulisses')">🎬 Coulisses Chantier</button>
+    </div>
+
+    <!-- AVANT / APRÈS -->
+    <div class="video-panel active" id="panel-avant-apres">
+      <div class="trame-card">
+        <div class="trame-header">
+          <div class="trame-header-left">
+            <span class="trame-emoji">🏚️</span>
+            <div class="trame-title">La transformation Avant / Après</div>
+            <div class="trame-meta">
+              <span class="tmeta">30–60 sec</span>
+              <span class="tmeta platform">Instagram Reels</span>
+              <span class="tmeta platform">TikTok</span>
+            </div>
+          </div>
+        </div>
+        <div class="trame-body">
+          <p>Le format le plus viral du secteur. L'objectif : provoquer un effet de surprise maximum en quelques secondes.</p>
+          <ul class="steps-list">
+            <li class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <div class="step-time">0 – 2 sec · Le hook</div>
+                <div class="step-text">Commencez directement sur l'image AVANT la plus moche : peinture écaillée, cuisine démodée, sol abîmé. Pas d'introduction, pas de logo.</div>
+                <div class="step-tip">💡 Ajoutez le texte : "Vous allez pas y croire…"</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <div class="step-time">3 – 15 sec · Le chantier</div>
+                <div class="step-text">Quelques images rapides du chantier en cours : ouvriers, matériaux, plans. Montage dynamique avec une musique rythmée. Timelapse si possible.</div>
+                <div class="step-tip">💡 Filmez en accéléré x4 pour l'effet "magie"</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <div class="step-time">16 – 25 sec · La révélation</div>
+                <div class="step-text">Plan large du résultat APRÈS, puis zoom sur les détails soignés : finitions, matériaux, luminosité. Effet de transition "wipe" ou "zoom" pour accentuer le contraste.</div>
+                <div class="step-tip">💡 Filmez le même angle exact qu'en phase AVANT</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <div class="step-time">26 – 35 sec · L'accroche finale</div>
+                <div class="step-text">Une phrase de conclusion à l'écran + logo Rennov discret. Terminez par une question pour engager : "Quel espace vous rêvez de transformer ?"</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tournage-card">
+        <div class="tournage-header">🎥 Guide de tournage</div>
+        <div class="tournage-body">
+          <div class="tip-block">
+            <h4>📱 Matériel</h4>
+            <ul class="tip-list">
+              <li><strong>Téléphone suffit</strong> — iPhone ou Android récent en mode vidéo 4K</li>
+              <li><strong>Stabilisateur</strong> (gimbal ~50€) pour éviter les tremblements</li>
+              <li><strong>Lumière naturelle</strong> en priorité : tournez en journée, fenêtres ouvertes</li>
+              <li><strong>Micro-cravate</strong> si vous parlez à la caméra (~20€ sur Amazon)</li>
+            </ul>
+          </div>
+          <div class="tip-block">
+            <h4>🎬 Cadrage</h4>
+            <ul class="tip-list">
+              <li><strong>Format vertical 9:16</strong> obligatoire pour Reels et TikTok</li>
+              <li>Filmez toujours les mêmes angles en AVANT et en APRÈS</li>
+              <li>Variez : plan large, plan moyen, gros plan sur les détails</li>
+              <li>Évitez de filmer à contre-jour (dos à la fenêtre)</li>
+            </ul>
+          </div>
+          <div class="tip-block">
+            <h4>✂️ Montage</h4>
+            <ul class="tip-list">
+              <li><strong>CapCut</strong> (gratuit) — idéal pour les débutants, plein d'effets</li>
+              <li>Transition recommandée : "zoom" ou "slide" au moment de la révélation</li>
+              <li>Musique tendance : utilisez les sons populaires du moment sur TikTok</li>
+            </ul>
+          </div>
+          <div class="hook-box">
+            <div class="hook-label">Exemple d'accroche texte</div>
+            <p>"On a transformé cet appartement en 6 semaines. Le propriétaire n'en revenait pas 👇"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONSEIL EXPRESS -->
+    <div class="video-panel" id="panel-conseil">
+      <div class="trame-card">
+        <div class="trame-header">
+          <div class="trame-header-left">
+            <span class="trame-emoji">🎓</span>
+            <div class="trame-title">Le Conseil Express</div>
+            <div class="trame-meta">
+              <span class="tmeta">45–90 sec</span>
+              <span class="tmeta platform">LinkedIn</span>
+              <span class="tmeta platform">TikTok</span>
+              <span class="tmeta platform">Instagram</span>
+            </div>
+          </div>
+        </div>
+        <div class="trame-body">
+          <p>Un membre de l'équipe répond à une question que se posent tous les propriétaires. Simple, direct, utile. Génère de la confiance et de l'autorité.</p>
+          <ul class="steps-list">
+            <li class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <div class="step-time">0 – 3 sec · La question-choc</div>
+                <div class="step-text">Ouvrez directement avec la question que les gens se posent. Regardez la caméra, parlez avec conviction.</div>
+                <div class="step-tip">💡 Ex : "Combien coûte vraiment une rénovation au m² ?" ou "Pourquoi vos travaux prennent toujours du retard ?"</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <div class="step-time">4 – 60 sec · La réponse en 3 points</div>
+                <div class="step-text">Donnez 3 éléments de réponse concrets, numérotés à l'écran. Appuyez avec des exemples tirés de vos chantiers réels.</div>
+                <div class="step-tip">💡 Utilisez des sous-titres automatiques (CapCut le fait) — 80% regardent sans son</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <div class="step-time">61 – 80 sec · Le CTA</div>
+                <div class="step-text">Terminez par une invitation à l'action douce : "Si vous avez un projet, on en parle en commentaire" ou "Enregistrez cette vidéo, elle vous sera utile".</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tournage-card">
+        <div class="tournage-header">🎥 Guide de tournage</div>
+        <div class="tournage-body">
+          <div class="tip-block">
+            <h4>📍 Décor recommandé</h4>
+            <ul class="tip-list">
+              <li>Tournez <strong>sur un chantier en cours</strong> pour plus d'authenticité</li>
+              <li>Ou devant une belle réalisation terminée (fond inspirant)</li>
+              <li>Évitez les fonds blancs neutres — trop impersonnel pour ce secteur</li>
+              <li>Un fond légèrement flou (bokeh) met bien en valeur le visage</li>
+            </ul>
+          </div>
+          <div class="tip-block">
+            <h4>🗣️ À l'écran</h4>
+            <ul class="tip-list">
+              <li>Présentez-vous brièvement la première fois : prénom + rôle chez Rennov</li>
+              <li><strong>Parlez naturellement</strong>, pas besoin d'être parfait — l'authenticité rassure</li>
+              <li>Utilisez vos mains pour structurer visuellement vos points</li>
+              <li>Habillement : tenue pro mais décontractée, pas de cravate</li>
+            </ul>
+          </div>
+          <div class="tip-block">
+            <h4>📝 Idées de sujets</h4>
+            <ul class="tip-list">
+              <li>"3 questions à poser avant de signer un devis travaux"</li>
+              <li>"Pourquoi faire appel à un architecte d'intérieur (et pas seulement un peintre)"</li>
+              <li>"Ce que les artisans ne vous disent pas sur les délais"</li>
+            </ul>
+          </div>
+          <div class="hook-box">
+            <div class="hook-label">Structure texte à l'écran</div>
+            <p>"Erreur n°1 ✗ … Erreur n°2 ✗ … Ce que vous devriez faire ✓"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PORTRAIT ÉQUIPE -->
+    <div class="video-panel" id="panel-equipe">
+      <div class="trame-card">
+        <div class="trame-header">
+          <div class="trame-header-left">
+            <span class="trame-emoji">👤</span>
+            <div class="trame-title">Portrait Membre de l'Équipe</div>
+            <div class="trame-meta">
+              <span class="tmeta">60–90 sec</span>
+              <span class="tmeta platform">LinkedIn</span>
+              <span class="tmeta platform">Instagram</span>
+              <span class="tmeta platform">Facebook</span>
+            </div>
+          </div>
+        </div>
+        <div class="trame-body">
+          <p>Humanisez la marque. Les gens achètent d'abord des personnes. Montrez qui se cache derrière Rennov.</p>
+          <ul class="steps-list">
+            <li class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <div class="step-time">0 – 5 sec · L'intro</div>
+                <div class="step-text">La personne se présente face caméra : prénom, rôle, depuis combien de temps chez Rennov. Ton chaleureux et souriant.</div>
+                <div class="step-tip">💡 Texte à l'écran : Prénom + "Architecte d'intérieur chez Rennov"</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <div class="step-time">6 – 40 sec · La passion</div>
+                <div class="step-text">1 question clé : "Qu'est-ce qui vous a donné envie de faire ce métier ?" ou "C'est quoi votre plus belle réalisation ?". Laissez parler spontanément, ne récitez pas.</div>
+                <div class="step-tip">💡 Coupez au montage les hésitations, gardez l'énergie</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <div class="step-time">41 – 70 sec · Le projet concret</div>
+                <div class="step-text">La personne montre un projet dont elle est fière : photos ou visite du chantier en arrière-plan. 1-2 phrases sur ce qui rend ce projet spécial.</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <div class="step-time">71 – 85 sec · Le mot de fin</div>
+                <div class="step-text">Une phrase qui incarne les valeurs de Rennov. Ex : "Ce qui me motive c'est de voir le visage du client quand il découvre le résultat."</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tournage-card">
+        <div class="tournage-header">🎥 Guide de tournage</div>
+        <div class="tournage-body">
+          <div class="tip-block">
+            <h4>🎙️ Format interview</h4>
+            <ul class="tip-list">
+              <li>Filmez en format <strong>16:9 pour LinkedIn/Facebook</strong>, recadrez en 9:16 pour Instagram</li>
+              <li>La personne regarde légèrement <strong>à côté</strong> de la caméra (vers l'interviewer) pour un effet naturel</li>
+              <li>Posez les questions à voix basse hors champ — gardez seulement les réponses</li>
+              <li>Filmez 2-3 prises par question, gardez la meilleure</li>
+            </ul>
+          </div>
+          <div class="tip-block">
+            <h4>💡 Mise en scène</h4>
+            <ul class="tip-list">
+              <li>Tournez <strong>dans un beau projet terminé</strong> par Rennov — le décor parle pour vous</li>
+              <li>Intercoupez avec des <strong>plans d'illustration</strong> : mains qui dessinent, mesures, matériaux</li>
+              <li>Musique douce et discrète en fond (pas obligatoire sur LinkedIn)</li>
+            </ul>
+          </div>
+          <div class="hook-box">
+            <div class="hook-label">Caption LinkedIn idéale</div>
+            <p>"Rencontrez [Prénom], l'architecte d'intérieur qui a transformé + de 30 logements dans le Jura. 👇"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TÉMOIGNAGE CLIENT -->
+    <div class="video-panel" id="panel-temoignage">
+      <div class="trame-card">
+        <div class="trame-header">
+          <div class="trame-header-left">
+            <span class="trame-emoji">💬</span>
+            <div class="trame-title">Témoignage Client</div>
+            <div class="trame-meta">
+              <span class="tmeta">60–120 sec</span>
+              <span class="tmeta platform">Facebook</span>
+              <span class="tmeta platform">LinkedIn</span>
+              <span class="tmeta platform">Instagram</span>
+            </div>
+          </div>
+        </div>
+        <div class="trame-body">
+          <p>Le contenu le plus puissant pour convertir. Un vrai client qui parle vaut 10 fois mieux que n'importe quel argument commercial.</p>
+          <ul class="steps-list">
+            <li class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <div class="step-time">0 – 8 sec · Présentation client</div>
+                <div class="step-text">Le client se présente brièvement : prénom, type de projet (pas besoin de nom de famille). Texte à l'écran : "Prénom — Projet [type], [ville]".</div>
+                <div class="step-tip">💡 Rassurez le client avant : "C'est très simple, 3 questions, pas de prise de tête"</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <div class="step-time">9 – 40 sec · Le problème initial</div>
+                <div class="step-text">Question : "C'était quoi votre situation avant de contacter Rennov ?" — Laissez le client décrire ses doutes, craintes, ce qui bloquait son projet.</div>
+                <div class="step-tip">💡 C'est la partie la plus importante pour que d'autres prospects se reconnaissent</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <div class="step-time">41 – 80 sec · La transformation</div>
+                <div class="step-text">Question : "Comment s'est passée la collaboration ? Qu'est-ce qui vous a surpris ?" Puis montrez les images du résultat final pendant qu'il parle.</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <div class="step-time">81 – 100 sec · La recommandation</div>
+                <div class="step-text">Question finale : "Vous recommanderiez Rennov ? À qui ?" Une réponse sincère et spontanée vaut de l'or.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tournage-card">
+        <div class="tournage-header">🎥 Guide de tournage</div>
+        <div class="tournage-body">
+          <div class="tip-block">
+            <h4>🤝 Mettre le client à l'aise</h4>
+            <ul class="tip-list">
+              <li>Faites une <strong>répétition informelle</strong> avant de filmer — une simple conversation</li>
+              <li>Filmez <strong>dans son logement rénové</strong> : il est dans son élément, plus détendu</li>
+              <li>Si la personne hésite à apparaître : <strong>voix off</strong> sur les images du projet</li>
+              <li>Proposez-lui de valider la vidéo avant publication — ça rassure</li>
+            </ul>
+          </div>
+          <div class="tip-block">
+            <h4>✂️ Ce qu'il faut garder au montage</h4>
+            <ul class="tip-list">
+              <li>Les <strong>moments d'émotion authentique</strong> : sourire, surprise, fierté</li>
+              <li>Les phrases concrètes avec des chiffres ou des détails précis</li>
+              <li>Intercoupez avec des <strong>photos du projet</strong> pendant le discours</li>
+            </ul>
+          </div>
+          <div class="hook-box">
+            <div class="hook-label">Caption parfaite</div>
+            <p>"Marie avait peur de se lancer dans une rénovation complète. 4 mois plus tard, voici ce qu'elle nous a dit 👇"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COULISSES CHANTIER -->
+    <div class="video-panel" id="panel-coulisses">
+      <div class="trame-card">
+        <div class="trame-header">
+          <div class="trame-header-left">
+            <span class="trame-emoji">🎬</span>
+            <div class="trame-title">Coulisses du Chantier</div>
+            <div class="trame-meta">
+              <span class="tmeta">30–60 sec</span>
+              <span class="tmeta platform">TikTok</span>
+              <span class="tmeta platform">Instagram Reels</span>
+            </div>
+          </div>
+        </div>
+        <div class="trame-body">
+          <p>Montrez ce que les clients ne voient jamais. La transparence rassure et génère de la curiosité. Format très engageant sur TikTok.</p>
+          <ul class="steps-list">
+            <li class="step-item">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <div class="step-time">0 – 3 sec · L'accroche mystère</div>
+                <div class="step-text">Démarrez sur une image intrigante du chantier, avec texte : "Vous avez toujours voulu savoir ce qui se passe derrière les murs ?"</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <div class="step-time">4 – 40 sec · La visite guidée</div>
+                <div class="step-text">Un architecte fait une mini-visite du chantier en parlant face caméra, en marchant. Il explique une étape précise : isolation, carrelage, plomberie… Ton pédagogique mais simple.</div>
+                <div class="step-tip">💡 Format "walking interview" très naturel et dynamique</div>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <div class="step-time">41 – 55 sec · Le détail surprenant</div>
+                <div class="step-text">Partagez un fait surprenant ou peu connu sur l'étape présentée. Ex : "Peu de gens savent que cette étape peut doubler la valeur d'un bien."</div>
+                <div class="step-tip">💡 Ce type de révélation = fort taux de sauvegarde et partage</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tournage-card">
+        <div class="tournage-header">🎥 Guide de tournage</div>
+        <div class="tournage-body">
+          <div class="tip-block">
+            <h4>🦺 Sur le chantier</h4>
+            <ul class="tip-list">
+              <li>Portez toujours les <strong>EPI visibles</strong> (casque, gilet) — ça crédibilise</li>
+              <li>Filmez tôt le matin quand la lumière est belle et le chantier actif</li>
+              <li>Stabilisez avec votre coude collé au corps si pas de gimbal</li>
+              <li>Demandez l'<strong>accord des artisans</strong> avant de les filmer</li>
+            </ul>
+          </div>
+          <div class="tip-block">
+            <h4>📅 Série récurrente</h4>
+            <ul class="tip-list">
+              <li>Créez une série : <strong>"Chantier Semaine X"</strong> — les abonnés suivent l'évolution</li>
+              <li>Montrez les imprévus et comment vous les gérez : ça humanise</li>
+              <li>Terminez chaque épisode sur un teaser : "La semaine prochaine…"</li>
+            </ul>
+          </div>
+          <div class="hook-box">
+            <div class="hook-label">Format série TikTok</div>
+            <p>"Semaine 1 : on commence 🏗️ — Semaine 3 : ça prend forme — Semaine 6 : la révélation ✨"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
 </main>
 
 <!-- ═══ FOOTER ═══ -->
@@ -1100,6 +1667,13 @@ footer p { font-size: .72rem; color: rgba(247,243,237,.35); letter-spacing: .1em
 </footer>
 
 <script>
+function showVideo(id) {
+  document.querySelectorAll('.video-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.vtab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
 function toggleChannel(id) {
   const el = document.getElementById(id);
   el.classList.toggle('open');
