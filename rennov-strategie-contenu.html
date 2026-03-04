@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stratégie de Contenu — Rennov</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,300;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1c1916;
+  --sand: #f7f3ed;
+  --warm-white: #fdfaf6;
+  --terracotta: #b85c38;
+  --terracotta-light: #d4795a;
+  --gold: #b8963e;
+  --sage: #6b7c5e;
+  --stone: #8c8070;
+  --border: rgba(28,25,22,0.1);
+  --border-strong: rgba(28,25,22,0.18);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--warm-white);
+  color: var(--ink);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes pulse {
+  0%,100% { opacity: .4; }
+  50%      { opacity: 1; }
+}
+
+.fade-up { opacity: 0; animation: fadeUp .6s ease forwards; }
+.d1 { animation-delay: .1s; }
+.d2 { animation-delay: .2s; }
+.d3 { animation-delay: .3s; }
+.d4 { animation-delay: .4s; }
+.d5 { animation-delay: .5s; }
+.d6 { animation-delay: .6s; }
+
+/* ── HEADER ── */
+header {
+  background: var(--ink);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.header-texture {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(184,92,56,.12) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(184,150,62,.08) 0%, transparent 40%);
+}
+.header-grid {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.header-grid::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(247,243,237,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247,243,237,.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.header-inner {
+  position: relative; z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5rem 3rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+}
+.header-eyebrow {
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  color: var(--sand);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -.01em;
+}
+header h1 strong {
+  font-weight: 700;
+  color: var(--gold);
+  font-style: italic;
+}
+.header-sub {
+  margin-top: 1.2rem;
+  font-size: .85rem;
+  color: rgba(247,243,237,.45);
+  max-width: 480px;
+  line-height: 1.8;
+}
+.header-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.8rem;
+}
+.pill {
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .35rem .9rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(247,243,237,.15);
+  color: rgba(247,243,237,.6);
+  font-weight: 400;
+}
+.pill.active {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: white;
+}
+.header-stat {
+  text-align: right;
+  padding-bottom: .5rem;
+}
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: rgba(247,243,237,.06);
+  line-height: 1;
+  display: block;
+}
+.stat-label {
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(247,243,237,.3);
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5rem 3rem 6rem;
+}
+
+/* ── SECTION HEADERS ── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--terracotta);
+  transform-origin: left;
+  animation: lineGrow .4s ease .2s both;
+}
+.section-label span {
+  font-size: .65rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 500;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+section { margin-bottom: 5rem; }
+
+/* ── POSITIONING ── */
+.positioning-card {
+  background: var(--ink);
+  border-radius: 8px;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.positioning-card::after {
+  content: '"';
+  position: absolute;
+  top: -1rem; right: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12rem;
+  color: rgba(247,243,237,.04);
+  line-height: 1;
+}
+.pos-block h3 {
+  font-size: .65rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--terracotta-light);
+  margin-bottom: .8rem;
+  font-weight: 500;
+}
+.pos-block p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: rgba(247,243,237,.8);
+  line-height: 1.6;
+  font-weight: 300;
+}
+.pos-divider {
+  width: 1px;
+  background: rgba(247,243,237,.08);
+  align-self: stretch;
+}
+
+/* ── OBJECTIVES ── */
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.obj-card {
+  background: var(--warm-white);
+  padding: 1.8rem 1.5rem;
+  transition: background .2s ease;
+  cursor: default;
+}
+.obj-card:hover { background: var(--sand); }
+.obj-icon {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.obj-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  opacity: .2;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.obj-card h3 {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  margin-bottom: .5rem;
+}
+.obj-card p {
+  font-size: .75rem;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+/* ── CHANNELS ── */
+.channels-stack { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.channel-row {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.channel-row:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 4px 24px rgba(28,25,22,.06);
+}
+.channel-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.2rem 1.8rem;
+  cursor: pointer;
+  background: var(--warm-white);
+}
+.channel-logo {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  color: white;
+}
+.ch-li .channel-logo { background: #0a66c2; }
+.ch-ig .channel-logo { background: linear-gradient(135deg,#f58529,#dd2a7b,#8134af); }
+.ch-tt .channel-logo { background: #010101; }
+.ch-fb .channel-logo { background: #1877f2; }
+
+.channel-info h3 { font-size: .95rem; font-weight: 600; margin-bottom: .2rem; }
+.channel-info p  { font-size: .75rem; color: var(--stone); }
+
+.channel-meta { display: flex; align-items: center; gap: 1rem; }
+.priority-badge {
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .3rem .8rem;
+  border-radius: 2rem;
+}
+.p-high   { background: rgba(184,92,56,.12); color: var(--terracotta); }
+.p-medium { background: rgba(107,124,94,.12); color: var(--sage); }
+.p-low    { background: rgba(140,128,112,.12); color: var(--stone); }
+
+.freq-badge {
+  font-size: .72rem;
+  color: var(--stone);
+  white-space: nowrap;
+}
+
+.toggle-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--stone); font-size: 1rem;
+  transition: transform .25s ease;
+  padding: .3rem;
+}
+.channel-row.open .toggle-btn { transform: rotate(180deg); }
+
+.channel-body {
+  display: none;
+  padding: 0 1.8rem 1.8rem;
+  background: var(--warm-white);
+}
+.channel-row.open .channel-body { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.cb-block h4 {
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: .8rem;
+  font-weight: 500;
+}
+.format-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tag {
+  font-size: .72rem;
+  padding: .3rem .75rem;
+  border-radius: 2rem;
+  background: var(--sand);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+.tag.highlight {
+  background: var(--terracotta);
+  color: white;
+  border-color: var(--terracotta);
+}
+.content-ideas { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+.content-ideas li {
+  font-size: .8rem;
+  color: var(--ink);
+  padding: .6rem .9rem;
+  background: var(--sand);
+  border-radius: 4px;
+  border-left: 2px solid var(--gold);
+  line-height: 1.5;
+}
+
+/* ── CONTENT PILLARS ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.pillar-card {
+  padding: 2rem;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: transform .2s ease;
+}
+.pillar-card:hover { transform: translateY(-3px); }
+.pillar-card:nth-child(1) { background: var(--ink); color: var(--sand); }
+.pillar-card:nth-child(2) { background: var(--terracotta); color: white; }
+.pillar-card:nth-child(3) { background: var(--sage); color: white; }
+.pillar-card:nth-child(4) { background: var(--sand); color: var(--ink); border: 1px solid var(--border); }
+.pillar-card:nth-child(5) { background: var(--gold); color: var(--ink); }
+
+.pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  opacity: .1;
+  line-height: 1;
+  position: absolute;
+  top: .5rem; right: 1rem;
+}
+.pillar-emoji { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
+.pillar-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .6rem; }
+.pillar-card p  { font-size: .78rem; line-height: 1.7; opacity: .8; }
+.pillar-examples {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+.pillar-tag {
+  font-size: .65rem;
+  padding: .2rem .6rem;
+  border-radius: 2rem;
+  background: rgba(255,255,255,.15);
+  font-weight: 500;
+}
+.pillar-card:nth-child(1) .pillar-tag { background: rgba(247,243,237,.12); }
+.pillar-card:nth-child(4) .pillar-tag { background: rgba(28,25,22,.08); }
+
+/* ── EDITORIAL CALENDAR ── */
+.cal-legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.leg-item { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: var(--stone); }
+.leg-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+.cal-week {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.cal-week-header {
+  background: var(--sand);
+  padding: .8rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.cal-week-header h4 { font-size: .8rem; font-weight: 600; letter-spacing: .05em; }
+.cal-week-header span { font-size: .7rem; color: var(--stone); }
+
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.cal-day {
+  padding: .8rem .6rem;
+  border-right: 1px solid var(--border);
+  min-height: 80px;
+}
+.cal-day:last-child { border-right: none; }
+.day-name {
+  font-size: .6rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: .5rem;
+  display: block;
+}
+.cal-post {
+  font-size: .65rem;
+  padding: .25rem .4rem;
+  border-radius: 3px;
+  margin-bottom: .3rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.post-li { background: rgba(10,102,194,.12); color: #0a66c2; }
+.post-ig { background: rgba(221,42,123,.12); color: #dd2a7b; }
+.post-fb { background: rgba(24,119,242,.1); color: #1877f2; }
+.post-all { background: rgba(184,150,62,.12); color: var(--gold); }
+
+/* ── KPIs ── */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.kpi-card {
+  background: var(--warm-white);
+  padding: 1.8rem 1.5rem;
+  transition: background .2s ease;
+}
+.kpi-card:hover { background: var(--sand); }
+.kpi-phase { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); margin-bottom: .8rem; }
+.kpi-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+.kpi-label { font-size: .78rem; font-weight: 500; margin-bottom: .3rem; }
+.kpi-desc  { font-size: .72rem; color: var(--stone); line-height: 1.5; }
+
+/* ── ROADMAP ── */
+.roadmap { position: relative; padding-left: 2.5rem; }
+.roadmap::before {
+  content: '';
+  position: absolute;
+  left: .65rem; top: 1rem; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--terracotta), transparent);
+}
+.rm-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+.rm-item::before {
+  content: '';
+  position: absolute;
+  left: -1.9rem; top: .35rem;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--warm-white);
+  border: 2px solid var(--terracotta);
+}
+.rm-item.active::before { background: var(--terracotta); }
+.rm-phase {
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: .3rem;
+}
+.rm-title { font-size: 1rem; font-weight: 600; margin-bottom: .5rem; }
+.rm-desc  { font-size: .8rem; color: var(--stone); line-height: 1.7; margin-bottom: .8rem; }
+.rm-tasks { display: flex; flex-wrap: wrap; gap: .4rem; }
+.rm-task {
+  font-size: .7rem;
+  padding: .25rem .7rem;
+  background: var(--sand);
+  border-radius: 2rem;
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+
+/* ── TONE GUIDE ── */
+.tone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.tone-card {
+  padding: 1.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.tone-card h3 { font-size: .8rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+.tone-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.tone-list li {
+  font-size: .8rem;
+  padding: .5rem .8rem;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+.do li { background: rgba(107,124,94,.08); border-left: 2px solid var(--sage); }
+.dont li { background: rgba(184,92,56,.06); border-left: 2px solid rgba(184,92,56,.4); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 2rem 3rem;
+  text-align: center;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: .4rem;
+}
+footer p { font-size: .72rem; color: rgba(247,243,237,.35); letter-spacing: .1em; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .header-inner { grid-template-columns: 1fr; }
+  .header-stat { display: none; }
+  main { padding: 2rem 1.5rem 4rem; }
+  .objectives-grid { grid-template-columns: 1fr 1fr; }
+  .positioning-card { grid-template-columns: 1fr; }
+  .pos-divider { display: none; }
+  .pillars-grid { grid-template-columns: 1fr 1fr; }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .channel-row.open .channel-body { grid-template-columns: 1fr; }
+  .tone-grid { grid-template-columns: 1fr; }
+  .cal-days { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="header-texture"></div>
+  <div class="header-grid"></div>
+  <div class="header-inner">
+    <div class="fade-up d1">
+      <div class="header-eyebrow">Stratégie de contenu · 2025</div>
+      <h1>Stratégie digitale<br><strong>Rennov</strong></h1>
+      <p class="header-sub">Conseil en travaux immobiliers · Jura · Sur-mesure &amp; haute qualité<br>4 objectifs · 4 canaux · Vision 6 mois</p>
+      <div class="header-pills">
+        <span class="pill active">LinkedIn</span>
+        <span class="pill active">Instagram</span>
+        <span class="pill active">TikTok</span>
+        <span class="pill active">Facebook</span>
+        <span class="pill">Notoriété</span>
+        <span class="pill">Leads</span>
+        <span class="pill">Communauté</span>
+        <span class="pill">Expertise</span>
+      </div>
+    </div>
+    <div class="header-stat fade-up d3">
+      <span class="stat-number">6</span>
+      <span class="stat-label">mois · roadmap</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+  <!-- POSITIONNEMENT -->
+  <section class="fade-up d2">
+    <div class="section-label"><span>01 · Positionnement</span></div>
+    <h2 class="section-title">Qui est Rennov ?</h2>
+    <div class="positioning-card">
+      <div class="pos-block">
+        <h3>Identité</h3>
+        <p>Société jurassienne de conseil en travaux immobiliers, portée par une équipe d'architectes d'intérieur engagés pour des projets sur mesure.</p>
+      </div>
+      <div class="pos-divider"></div>
+      <div class="pos-block">
+        <h3>Promesse</h3>
+        <p>Audacieuse dans l'approche, rigoureuse dans l'exécution. Une expertise reconnue pour transformer chaque projet en réalisation de haute qualité.</p>
+      </div>
+      <div class="pos-divider"></div>
+      <div class="pos-block">
+        <h3>Cibles</h3>
+        <p>Propriétaires souhaitant rénover, investisseurs immobiliers, professionnels de l'immobilier, primo-accédants en région Bourgogne-Franche-Comté.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJECTIFS -->
+  <section class="fade-up d3">
+    <div class="section-label"><span>02 · Objectifs</span></div>
+    <h2 class="section-title">Les 4 piliers stratégiques</h2>
+    <div class="objectives-grid">
+      <div class="obj-card">
+        <span class="obj-icon">📣</span>
+        <div class="obj-num">01</div>
+        <h3>Visibilité &amp; Notoriété</h3>
+        <p>Faire connaître Rennov au-delà du Jura. Devenir la référence régionale en conseil travaux sur les réseaux.</p>
+      </div>
+      <div class="obj-card">
+        <span class="obj-icon">🎯</span>
+        <div class="obj-num">02</div>
+        <h3>Génération de leads</h3>
+        <p>Transformer l'audience en prospects qualifiés via des CTA clairs, des témoignages et des appels à consultation.</p>
+      </div>
+      <div class="obj-card">
+        <span class="obj-icon">🤝</span>
+        <div class="obj-num">03</div>
+        <h3>Fidéliser la communauté</h3>
+        <p>Créer un lien durable avec les abonnés grâce à du contenu utile, inspirant et humain.</p>
+      </div>
+      <div class="obj-card">
+        <span class="obj-icon">🏅</span>
+        <div class="obj-num">04</div>
+        <h3>Expertise &amp; Personal Branding</h3>
+        <p>Positionner les architectes de l'équipe comme des références sectorielles reconnues et dignes de confiance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CANAUX -->
+  <section class="fade-up d3">
+    <div class="section-label"><span>03 · Canaux</span></div>
+    <h2 class="section-title">Stratégie par plateforme</h2>
+    <div class="channels-stack">
+
+      <!-- LINKEDIN -->
+      <div class="channel-row ch-li" id="ch-linkedin">
+        <div class="channel-head" onclick="toggleChannel('ch-linkedin')">
+          <div class="channel-logo">in</div>
+          <div class="channel-info">
+            <h3>LinkedIn</h3>
+            <p>Expertise B2B · Investisseurs · Professionnels de l'immobilier</p>
+          </div>
+          <div class="channel-meta">
+            <span class="priority-badge p-high">Priorité haute</span>
+            <span class="freq-badge">3× / semaine</span>
+            <button class="toggle-btn">▾</button>
+          </div>
+        </div>
+        <div class="channel-body">
+          <div class="cb-block">
+            <h4>Formats recommandés</h4>
+            <div class="format-tags">
+              <span class="tag highlight">Carrousel avant/après</span>
+              <span class="tag highlight">Post texte expert</span>
+              <span class="tag">Étude de cas client</span>
+              <span class="tag">Vidéo courte chantier</span>
+              <span class="tag">Sondage interactif</span>
+              <span class="tag">Article long format</span>
+            </div>
+          </div>
+          <div class="cb-block">
+            <h4>Idées de contenu</h4>
+            <ul class="content-ideas">
+              <li>🔑 "3 erreurs à éviter avant de lancer vos travaux de rénovation"</li>
+              <li>🏗️ Coulisses d'un projet : de la visite au rendu final</li>
+              <li>💡 Pourquoi faire appel à un architecte d'intérieur change tout</li>
+              <li>📊 Infographie : les étapes d'un projet de rénovation avec Rennov</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSTAGRAM -->
+      <div class="channel-row ch-ig" id="ch-instagram">
+        <div class="channel-head" onclick="toggleChannel('ch-instagram')">
+          <div class="channel-logo">📷</div>
+          <div class="channel-info">
+            <h3>Instagram</h3>
+            <p>Inspiration visuelle · Particuliers · Primo-accédants</p>
+          </div>
+          <div class="channel-meta">
+            <span class="priority-badge p-high">Priorité haute</span>
+            <span class="freq-badge">5× / semaine</span>
+            <button class="toggle-btn">▾</button>
+          </div>
+        </div>
+        <div class="channel-body">
+          <div class="cb-block">
+            <h4>Formats recommandés</h4>
+            <div class="format-tags">
+              <span class="tag highlight">Reels avant/après</span>
+              <span class="tag highlight">Stories quiz &amp; sondages</span>
+              <span class="tag">Photos ambiance chantier</span>
+              <span class="tag">Carrousel inspiration déco</span>
+              <span class="tag">Reels timelapse travaux</span>
+              <span class="tag">Stories FAQ clients</span>
+            </div>
+          </div>
+          <div class="cb-block">
+            <h4>Idées de contenu</h4>
+            <ul class="content-ideas">
+              <li>✨ Reel : transformation complète d'un appartement en 30 secondes</li>
+              <li>🎨 "Quelle palette de couleurs pour votre salon ?" (sondage Stories)</li>
+              <li>📐 Une journée avec nos architectes d'intérieur</li>
+              <li>🏠 Tendances déco 2025 vues par l'équipe Rennov</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIKTOK -->
+      <div class="channel-row ch-tt" id="ch-tiktok">
+        <div class="channel-head" onclick="toggleChannel('ch-tiktok')">
+          <div class="channel-logo">🎵</div>
+          <div class="channel-info">
+            <h3>TikTok</h3>
+            <p>Notoriété · Jeunes propriétaires · Viral &amp; découverte</p>
+          </div>
+          <div class="channel-meta">
+            <span class="priority-badge p-medium">Priorité moyenne</span>
+            <span class="freq-badge">3× / semaine</span>
+            <button class="toggle-btn">▾</button>
+          </div>
+        </div>
+        <div class="channel-body">
+          <div class="cb-block">
+            <h4>Formats recommandés</h4>
+            <div class="format-tags">
+              <span class="tag highlight">Transformation avant/après</span>
+              <span class="tag highlight">Tips travaux express</span>
+              <span class="tag">Réponses aux idées reçues</span>
+              <span class="tag">POV : architecte d'intérieur</span>
+              <span class="tag">Trends adaptées au secteur</span>
+            </div>
+          </div>
+          <div class="cb-block">
+            <h4>Idées de contenu</h4>
+            <ul class="content-ideas">
+              <li>🔥 "Ce que vous ne savez pas sur la rénovation" (série en 5 épisodes)</li>
+              <li>😱 Les pires erreurs que nos clients ont évitées grâce à Rennov</li>
+              <li>🏚️ → 🏡 Timelapse d'une rénovation complète avec musique tendance</li>
+              <li>💬 "Posez vos questions à notre archi" (duet / Q&amp;A)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- FACEBOOK -->
+      <div class="channel-row ch-fb" id="ch-facebook">
+        <div class="channel-head" onclick="toggleChannel('ch-facebook')">
+          <div class="channel-logo">f</div>
+          <div class="channel-info">
+            <h3>Facebook</h3>
+            <p>Communauté locale · 35-60 ans · Propriétaires Jura &amp; région</p>
+          </div>
+          <div class="channel-meta">
+            <span class="priority-badge p-medium">Priorité moyenne</span>
+            <span class="freq-badge">3× / semaine</span>
+            <button class="toggle-btn">▾</button>
+          </div>
+        </div>
+        <div class="channel-body">
+          <div class="cb-block">
+            <h4>Formats recommandés</h4>
+            <div class="format-tags">
+              <span class="tag highlight">Albums photos projets</span>
+              <span class="tag highlight">Témoignages clients</span>
+              <span class="tag">Articles de blog partagés</span>
+              <span class="tag">Vidéos explicatives</span>
+              <span class="tag">Événements locaux</span>
+              <span class="tag">Partage de réalisations</span>
+            </div>
+          </div>
+          <div class="cb-block">
+            <h4>Idées de contenu</h4>
+            <ul class="content-ideas">
+              <li>⭐ Témoignage client : "Rennov a transformé notre maison jurassienne"</li>
+              <li>📸 Album : nos 5 plus belles réalisations de l'année</li>
+              <li>📅 "Portes ouvertes chantier" — invitation à la communauté locale</li>
+              <li>❓ "Vous avez un projet ? Posez vos questions en commentaire"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PILIERS CONTENU -->
+  <section class="fade-up d4">
+    <div class="section-label"><span>04 · Piliers éditoriaux</span></div>
+    <h2 class="section-title">5 thèmes de contenu récurrents</h2>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">1</div>
+        <span class="pillar-emoji">🏗️</span>
+        <h3>Nos réalisations</h3>
+        <p>Avant/après, chantiers en cours, portfolio de projets. Le contenu le plus engageant et concret.</p>
+        <div class="pillar-examples">
+          <span class="pillar-tag">Avant/Après</span>
+          <span class="pillar-tag">Timelapse</span>
+          <span class="pillar-tag">Photos HD</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">2</div>
+        <span class="pillar-emoji">🎓</span>
+        <h3>Expertise &amp; Conseils</h3>
+        <p>Tips travaux, erreurs courantes, guides pratiques. Positionne Rennov comme référence de confiance.</p>
+        <div class="pillar-examples">
+          <span class="pillar-tag">Guides</span>
+          <span class="pillar-tag">FAQ</span>
+          <span class="pillar-tag">Décryptage</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">3</div>
+        <span class="pillar-emoji">👥</span>
+        <h3>L'équipe &amp; les coulisses</h3>
+        <p>Visages de l'équipe, journées type, processus de travail. Humanise la marque et crée de la proximité.</p>
+        <div class="pillar-examples">
+          <span class="pillar-tag">BTS</span>
+          <span class="pillar-tag">Équipe</span>
+          <span class="pillar-tag">Valeurs</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">4</div>
+        <span class="pillar-emoji">💬</span>
+        <h3>Clients &amp; Témoignages</h3>
+        <p>Avis, retours d'expérience, études de cas. La preuve sociale la plus puissante pour générer des leads.</p>
+        <div class="pillar-examples">
+          <span class="pillar-tag">Avis</span>
+          <span class="pillar-tag">Cas client</span>
+          <span class="pillar-tag">Résultats</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">5</div>
+        <span class="pillar-emoji">✨</span>
+        <h3>Tendances &amp; Inspiration</h3>
+        <p>Déco, architecture, matériaux tendance, projets inspirants. Nourrit l'imaginaire des prospects.</p>
+        <div class="pillar-examples">
+          <span class="pillar-tag">Déco 2025</span>
+          <span class="pillar-tag">Moodboard</span>
+          <span class="pillar-tag">Curation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDRIER ÉDITORIAL -->
+  <section class="fade-up d4">
+    <div class="section-label"><span>05 · Planning</span></div>
+    <h2 class="section-title">Exemple de semaine type</h2>
+
+    <div class="cal-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:#0a66c2"></div> LinkedIn</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#dd2a7b"></div> Instagram</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#1877f2"></div> Facebook</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#b8963e"></div> Multi-canaux</div>
+    </div>
+
+    <div class="cal-week">
+      <div class="cal-week-header">
+        <h4>Semaine type — Rythme de croisière</h4>
+        <span>~14 publications / semaine</span>
+      </div>
+      <div class="cal-days">
+        <div class="cal-day">
+          <span class="day-name">Lun</span>
+          <div class="cal-post post-li">Conseil expert</div>
+          <div class="cal-post post-ig">Reels inspiration</div>
+        </div>
+        <div class="cal-day">
+          <span class="day-name">Mar</span>
+          <div class="cal-post post-fb">Témoignage client</div>
+          <div class="cal-post post-ig">Story Q&amp;A</div>
+        </div>
+        <div class="cal-day">
+          <span class="day-name">Mer</span>
+          <div class="cal-post post-all">Avant/Après</div>
+        </div>
+        <div class="cal-day">
+          <span class="day-name">Jeu</span>
+          <div class="cal-post post-li">Étude de cas</div>
+          <div class="cal-post post-ig">Coulisses équipe</div>
+        </div>
+        <div class="cal-day">
+          <span class="day-name">Ven</span>
+          <div class="cal-post post-fb">Album réalisation</div>
+          <div class="cal-post post-ig">Tendance déco</div>
+        </div>
+        <div class="cal-day">
+          <span class="day-name">Sam</span>
+          <div class="cal-post post-ig">Reels chantier</div>
+          <div class="cal-post post-fb">Engagement post</div>
+        </div>
+        <div class="cal-day">
+          <span class="day-name">Dim</span>
+          <div class="cal-post post-ig">Story inspiration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TON & VOIX -->
+  <section class="fade-up d5">
+    <div class="section-label"><span>06 · Ligne éditoriale</span></div>
+    <h2 class="section-title">Ton &amp; voix de la marque</h2>
+    <div class="tone-grid">
+      <div class="tone-card do">
+        <h3>✅ À faire</h3>
+        <ul class="tone-list">
+          <li>Parler avec passion et conviction du métier</li>
+          <li>Utiliser un vocabulaire accessible, jamais condescendant</li>
+          <li>Montrer la rigueur sans rigidité : sérieux mais humain</li>
+          <li>Mettre en valeur les projets sur mesure et le travail d'équipe</li>
+          <li>Ancrer dans le territoire jurassien (fierté locale)</li>
+          <li>Poser des questions pour stimuler l'engagement</li>
+        </ul>
+      </div>
+      <div class="tone-card dont">
+        <h3>❌ À éviter</h3>
+        <ul class="tone-list">
+          <li>Jargon technique incompréhensible pour les clients</li>
+          <li>Contenu trop promotionnel ou "commercial" en permanence</li>
+          <li>Photos de mauvaise qualité ou non représentatives</li>
+          <li>Ignorer les commentaires et messages des abonnés</li>
+          <li>Publier de façon irrégulière puis surpublier</li>
+          <li>Copier la communication des concurrents sans se différencier</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="fade-up d5">
+    <div class="section-label"><span>07 · Mesure</span></div>
+    <h2 class="section-title">KPIs à suivre</h2>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-phase">Mois 1-2</div>
+        <div class="kpi-value">+200</div>
+        <div class="kpi-label">Abonnés / réseau</div>
+        <div class="kpi-desc">Croissance organique sur LinkedIn, Instagram &amp; Facebook</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-phase">Mois 3-4</div>
+        <div class="kpi-value">5%</div>
+        <div class="kpi-label">Taux d'engagement</div>
+        <div class="kpi-desc">Likes, commentaires, partages et sauvegardes sur chaque post</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-phase">Mois 4-5</div>
+        <div class="kpi-value">10+</div>
+        <div class="kpi-label">Leads / mois</div>
+        <div class="kpi-desc">Demandes de devis ou prises de contact issues des réseaux</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-phase">Mois 6</div>
+        <div class="kpi-value">×3</div>
+        <div class="kpi-label">Portée organique</div>
+        <div class="kpi-desc">Multiplication de la reach sur les publications clés vs. mois 1</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="fade-up d6">
+    <div class="section-label"><span>08 · Roadmap</span></div>
+    <h2 class="section-title">Plan d'action sur 6 mois</h2>
+    <div class="roadmap">
+
+      <div class="rm-item active">
+        <div class="rm-phase">Phase 1 · Mois 1-2</div>
+        <div class="rm-title">🏁 Lancement &amp; Fondations</div>
+        <div class="rm-desc">Optimiser les profils, constituer un stock de contenu, publier régulièrement pour installer la présence. Priorité au contenu visuel "avant/après" et à la présentation de l'équipe.</div>
+        <div class="rm-tasks">
+          <span class="rm-task">Audit des profils existants</span>
+          <span class="rm-task">Création du planning éditorial</span>
+          <span class="rm-task">Shooting photos/vidéos</span>
+          <span class="rm-task">Optimisation bios &amp; visuels</span>
+          <span class="rm-task">Premiers contenus piliers</span>
+        </div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-phase">Phase 2 · Mois 3-4</div>
+        <div class="rm-title">📈 Croissance &amp; Engagement</div>
+        <div class="rm-desc">Amplifier ce qui fonctionne, tester de nouveaux formats (Reels, carrousels), commencer à recueillir et publier des témoignages clients. Lancer les premières campagnes ciblées.</div>
+        <div class="rm-tasks">
+          <span class="rm-task">Analyse des performances</span>
+          <span class="rm-task">Série de témoignages clients</span>
+          <span class="rm-task">Tests Reels TikTok</span>
+          <span class="rm-task">Campagnes Meta Ads</span>
+          <span class="rm-task">Partenariats locaux</span>
+        </div>
+      </div>
+
+      <div class="rm-item">
+        <div class="rm-phase">Phase 3 · Mois 5-6</div>
+        <div class="rm-title">🚀 Conversion &amp; Fidélisation</div>
+        <div class="rm-desc">Transformer la communauté en clients. Mettre en place des tunnels de conversion clairs (CTA vers consultation gratuite), fidéliser les abonnés avec du contenu exclusif et de valeur.</div>
+        <div class="rm-tasks">
+          <span class="rm-task">Offre consultation gratuite</span>
+          <span class="rm-task">Séries contenus experts</span>
+          <span class="rm-task">Retargeting prospects</span>
+          <span class="rm-task">Bilan &amp; itération stratégie</span>
+          <span class="rm-task">Programme ambassadeurs</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Rennov</div>
+    <p>Stratégie de contenu · Document confidentiel · 2025</p>
+  </div>
+</footer>
+
+<script>
+function toggleChannel(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+// Auto-open LinkedIn on load
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('ch-linkedin').classList.add('open');
+});
+</script>
+</body>
+</html>
